@@ -53,9 +53,11 @@
 
 html, body{
   scroll-behavior: smooth;
+  background-color: whitesmoke;
+  color: black;
 }
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
@@ -113,4 +115,4 @@ input{
 
 input:focus{
   outline: none;
-}
+} */

@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Roboto, sans-serif;
+  line-height: 1.5;
+  font-size: var(--font-normal);
+  font-weight: 500;
+  letter-spacing: 0.025rem;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.root,
+#root,
+#docs-root {
+  --primary-color: #5dd4aa;
+  --secondary-color: #3e8799;
+
+  --font-large: 1.375rem;
+  --font-normal: 1.125rem;
+  --font-small: .875rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4db590;
+}
+
+html, body{
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background-color: #242424;
+}
+
+main{
+  max-width: 800px;
+  margin: auto;
+}
+
+p{
+  background-color: darkslategray;
+  max-width: 70%;
+  padding: 15px;
+  border-radius: 50px;
+}
+
+p span{
+  margin: 5px;
+}
+
+p span:first-child{
+  margin-right: 0;
+}
+
+.user_msg{
+  text-align: right;
+  margin-left: 30%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.hide {
+  visibility: hidden;
+  display: none;
+}
+
+form{
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}
+
+input{
+  width: 100%;
+  height: 40px;
+  border: none;
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: rgb(28, 23, 23);
+}
+
+input:focus{
+  outline: none;
+}

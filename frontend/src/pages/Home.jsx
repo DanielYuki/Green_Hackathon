@@ -25,8 +25,8 @@ export default function Home() {
                     to="/Chat"
                     className="px-6 py-4 bg-red-600 text-center font-bold hover:bg-red-700 transition duration-400 ease-in-out text-white rounded block w-full md:w-auto"
                 >
-                    <span className="hidden md:inline">
-                        Clique para saber mais como impulsionar seu negócio
+                    <span className="hidden md:inline text-2xl">
+                        Impulsione seu Negócio
                     </span>
                     <span className="md:hidden text-xl">
                         Impulsione seu Negócio

@@ -23,8 +23,9 @@
 .root,
 #root,
 #docs-root {
-  --primary-color: #5dd4aa;
-  --secondary-color: whitesmoke;
+  --primary-color: #034EA2;
+  --secondary-color: #DFFAFF;
+  --terciary-color: whitesmoke;
 
   --font-large: 1.375rem;
   --font-normal: 1.125rem;
@@ -38,7 +39,8 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--secondary-color);
+  background: var(--terciary-color);
+  /* background: whitesmoke; */
 }
 
 /* Handle */
@@ -48,7 +50,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #4db590;
+  background: var(--secondary-color);
 }
 
 html, body{

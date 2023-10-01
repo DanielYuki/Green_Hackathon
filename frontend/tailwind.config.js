@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       colors: {
         "primary-color": "var(--primary-color)",
-        "secondary-color": "var(--secondary-color)"
+        "secondary-color": "var(--secondary-color)",
+        "terciary-color": "var(--terciary-color)"
       },
       fontSize: {
         'fl': 'var(--font-large)',

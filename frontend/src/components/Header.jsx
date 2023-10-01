@@ -13,7 +13,7 @@ export default function Header() {
             <nav className="flex flex-row-reverse">
                 {/* <NavLink
                     className="pl-[2vw] py-[1vh] hover:bg-[white] hover:text-primary-color transition duration-1000 ease-in-out"
-                    to="/Home"
+                    to="/"
                     style={({ isActive }) => (isActive ? activeStyles : null)}
                 >
                     Home

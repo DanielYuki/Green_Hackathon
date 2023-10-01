@@ -2,6 +2,7 @@ import react from "react";
 import { NavLink } from "react-router-dom";
 
 import FlowerImg from "../assets/flower.png";
+import SuzanaImg from "../assets/suzanaIconChat.png";
 
 export default function Home() {
     return (
@@ -44,8 +45,9 @@ export default function Home() {
 
             <div className="hidden md:block w-[40%]">
                 <img
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.rootinc.com%2Fwp-content%2Fuploads%2F2020%2F07%2Fpink-blob-1024x864.png&f=1&nofb=1&ipt=faf5aef7911236cb66e02769c213e76e62288c434f79d0c06a25d00b6b74a04f&ipo=images"
-                    alt=""
+                    // src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.rootinc.com%2Fwp-content%2Fuploads%2F2020%2F07%2Fpink-blob-1024x864.png&f=1&nofb=1&ipt=faf5aef7911236cb66e02769c213e76e62288c434f79d0c06a25d00b6b74a04f&ipo=images"
+                    alt="Suzana"
+                    src={SuzanaImg}
                 />
             </div>
         </main>

@@ -25,8 +25,8 @@ export default function Chat() {
 
         setMessage("");
 
-        fetch("https://green-hackathon-server.vercel.app/", {
-        // fetch("http://localhost:8000", {
+        // fetch("https://green-hackathon-server.vercel.app/", {
+        fetch("http://localhost:8000", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -47,7 +47,8 @@ export default function Chat() {
                 //     "Sou uma ferramenta em constante desenvolvimento, estou atualmente em uma fase de adaptação contínua. Lamentamos sinceramente qualquer inconveniente que isso possa causar."
                 // );
                 setErrorMessage(
-                    "Ocorreu um erro inesperado, por favor tente novamente mais tarde."
+                    // "Ocorreu um erro inesperado, por favor tente novamente mais tarde."
+                    "Devido ao alto fluxo de usuários, estamos com problemas em nossos servidores. Por favor, tente novamente mais tarde."
                 );
                 // setChats(msgs);
                 setIsTyping(false);
@@ -135,6 +136,7 @@ export default function Chat() {
                     name="message"
                     value={message}
                     placeholder="Digite aqui sua dúvida"
+                    autoComplete="off"
                     onChange={(e) => setMessage(e.target.value)}
                     className="flex-grow text-white bg-primary-color h-10 sm:h-12 rounded-l-lg py-2 px-4 focus:outline-none focus:ring"
                 />

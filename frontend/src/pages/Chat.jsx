@@ -1,18 +1,23 @@
 import react, { useState } from "react";
 
+import Message from "../components/Message";
+import ErrorMessage from "../components/ErrorMsg";
+
 // import suzanaIconChat from "../assets/suzanaIconChat.png";
 
 export default function Chat() {
     const [message, setMessage] = useState("");
     const [chats, setChats] = useState([]);
     const [isTyping, setIsTyping] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const chat = async (e, message) => {
         e.preventDefault();
 
         if (!message) return;
+
         setIsTyping(true);
-        scrollTo(0, 1e10);
+        setErrorMessage(null);
 
         let msgs = chats;
         msgs.push({ role: "user", content: message });
@@ -20,7 +25,8 @@ export default function Chat() {
 
         setMessage("");
 
-        fetch("https://green-hackathon-server.vercel.app/", {
+        // fetch("https://green-hackathon-server.vercel.app/", {
+        fetch("http://localhost:8000", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -34,10 +40,17 @@ export default function Chat() {
                 msgs.push(data.output);
                 setChats(msgs);
                 setIsTyping(false);
-                scrollTo(0, 1e10);
             })
             .catch((error) => {
                 console.log(error);
+                // msgs.push(
+                //     "Sou uma ferramenta em constante desenvolvimento, estou atualmente em uma fase de adaptação contínua. Lamentamos sinceramente qualquer inconveniente que isso possa causar."
+                // );
+                setErrorMessage(
+                    "Ocorreu um erro inesperado, por favor tente novamente mais tarde."
+                );
+                // setChats(msgs);
+                setIsTyping(false);
             });
     };
 
@@ -49,40 +62,22 @@ export default function Chat() {
 
             <div className="overflow-y-scroll h-[80%]">
                 <section className="mt-4 space-y-4 px-2 sm:px-4">
-                    {chats && chats.length
-                        ? chats.map((chat, index) => (
-                              <div
-                                  key={index}
-                                  className={`${
-                                      chat.role === "user"
-                                          ? "flex justify-end items-center"
-                                          : "flex justify-start items-center"
-                                  }`}
-                              >
-                                  {chat.role !== "user" && (
-                                      <img
-                                          // src={suzanaIconChat}
-                                          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vhv.rs%2Fdpng%2Fd%2F436-4363443_view-user-icon-png-font-awesome-user-circle.png&f=1&nofb=1&ipt=5554a8abdb5e04f04ca38fb6bab9ca9b0e36674c13a5dcf08adc440d05f18676&ipo=images"
-                                          alt="Suzana Icon"
-                                          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full mr-2 self-baseline"
-                                      />
-                                  )}
-                                  <div className="relative bg-white p-2 sm:p-4 rounded-lg shadow-md">
-                                      <div className="relative">
-                                          <span className="block text-xs sm:text-sm md:text-base mb-2 text-gray-600">
-                                              <b>{chat.role.toUpperCase()}</b>:
-                                          </span>
-                                          <span className="block text-sm sm:text-base md:text-lg">
-                                              {chat.content}
-                                          </span>
-                                      </div>
-                                      {chat.role !== "user" && (
-                                          <div className="absolute w-0 h-0 border-t-8 border-l-8 border-white top-0 left-0"></div>
-                                      )}
-                                  </div>
-                              </div>
-                          ))
-                        : ""}
+                    {chats && chats.length ? (
+                        chats.map((chat, index) => (
+                            <Message
+                                key={index}
+                                role={chat.role}
+                                content={chat.content}
+                            />
+                        ))
+                    ) : (
+                        <div className="flex justify-center items-center h-full">
+                            <span className="text-gray-600 text-xl">
+                                Inicie uma conversa
+                            </span>
+                        </div>
+                    )}
+                    {errorMessage && <ErrorMessage message={errorMessage} />}
                 </section>
 
                 <div className={`mt-2 sm:mt-4 ${isTyping ? "" : "hidden"}`}>

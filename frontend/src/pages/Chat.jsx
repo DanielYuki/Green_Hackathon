@@ -20,7 +20,7 @@ export default function Chat() {
 
         setMessage("");
 
-        fetch("https://green-hackathon-server.vercel.app:8000/", {
+        fetch("https://green-hackathon-server.vercel.app/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
